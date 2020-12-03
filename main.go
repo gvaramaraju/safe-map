@@ -1,17 +1,15 @@
-package main 
+package main
 
-import "fmt"
+import (
+	"fmt"
 
-func main() { 
+	"github.com/setraj/safe-map/concurrent"
+)
 
-	var idTonameMap = make(map[float64]string) 
-	
-	idTonameMap[1] = "Rohit"
-	idTonameMap[2] = "Sumit"
+func main() {
+	fmt.Println("main function")
+	cMap := concurrent.NewConcurrentMap(5)
+	cMap.Add(1, "apple")
 
-	for id, name := range idTonameMap { 
-  
-        fmt.Println(id, name) 
-    } 
-} 
-
+	fmt.Println(cMap)
+}
